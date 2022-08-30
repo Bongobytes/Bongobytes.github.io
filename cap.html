@@ -1,0 +1,21 @@
+  <head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+      <div class="g-recaptcha" data-sitekey="6LeeWK4hAAAAANG8Fj0q7wSSDaca1BbmScoNSQdG"></div>
+      <br/>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+<script>
+function validateForm() {
+  var g-recaptcha = document.forms["myForm"]["fname"].value;
+  if (g-recaptcha == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
