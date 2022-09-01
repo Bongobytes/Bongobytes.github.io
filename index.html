@@ -1,4 +1,44 @@
 <!DOCTYPE html>
+<div class="location" style="background-color:#fa8e4c;">
+<!-- onload code if needed
+<body onload="GFG_Fun()">
+-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="location"></div>
+    <script>
+      var div  = document.getElementById("location");
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          div.innerHTML = "The Browser Does not Support Geolocation";
+        }
+      }
+
+      function showPosition(position) {
+        div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+      }
+
+      function showError(error) {
+        if(error.PERMISSION_DENIED){
+            div.innerHTML = "The User have denied the request for Geolocation.";
+        }
+      }
+      getLocation();
+    </script>
+  </body>
+    <Style>
+.location{
+  position: absolute;
+  top: 100px;
+  right: 16px;
+}
+</style>
+</body>
 <div class="os" style="background-color:#fa8e4c;">
 
 <body onload="GFG_Fun()">
@@ -45,10 +85,7 @@
 	<!-- end -->
 <html lang="en">
 <head>
-  
-  <!--====== Design by foolishdeveloper.com =====-->
-  
-  
+
     <title>RoboHawks</title>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -121,7 +158,7 @@ a{
         <h2>Warning</h2>
       </div>
         <p>
-This site is not Yet Complete!
+This site is not Yet Complete! , If You are asked to allow Permissions Those are just for debug if you need it
         </p>
         <a href="home.html">Ok</a>
     </div>
