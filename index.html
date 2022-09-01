@@ -1,4 +1,28 @@
+
 <!DOCTYPE html>
+
+    <div class="ip"style="background-color:#fa8e4c;">
+<!-- onload code if needed
+<body onload="GFG_Fun()">
+-->
+<head><style>
+	p, h1 {
+		color: black
+	}
+	</style><script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script><script>
+	$.getJSON("https://api.ipify.org?format=json", function(data) {
+		$("#gfg").html(data.ip);
+	})
+	</script></head><body><center><h3>The I.P. Address of this device:</h3><p id="gfg"></p></center></body>
+        <Style>
+.ip{
+  position: absolute;
+  top: 87px;
+  right: 16px;
+}
+</style>
+</div>
 <div class="location" style="background-color:#fa8e4c;">
 <!-- onload code if needed
 <body onload="GFG_Fun()">
@@ -180,4 +204,3 @@ document.querySelector("#close").addEventListener("click", function(){
     </script>
 </body>
 </html>
-
