@@ -101,3 +101,44 @@ document.querySelector("#close").addEventListener("click", function(){
     </script>
 </body>
 </html>
+<div class="os" style="background-color:#fa8e4c;">
+
+<body onload="GFG_Fun()">
+
+<body style="text-align:center;" id="body">
+	<p id="GFG_UP"
+	style="font-size: 19px;
+			font-weight: bold;">
+	</p>
+	<p id="GFG_DOWN"
+	style="color: black;
+			font-size: 24px;
+			font-weight: bold;">
+	</p>
+	<script>
+		HTMLDocument.prototype.e = document.getElementById;
+		var el_up = document.e("GFG_UP");
+		var el_down = document.e("GFG_DOWN");
+		el_up.innerHTML = "Your os is";
+		var Name = "Not known";
+		if (navigator.appVersion.indexOf("Win") != -1) Name =
+		"Windows";
+		if (navigator.appVersion.indexOf("Mac") != -1) Name =
+		"MacOS";
+		if (navigator.appVersion.indexOf("X11") != -1) Name =
+		"UNIX";
+		if (navigator.appVersion.indexOf("Linux") != -1) Name =
+		"Linux";
+
+		function GFG_Fun() {
+			el_down.innerHTML = Name;
+		}
+	</script>
+    <Style>
+  .os{
+  position: absolute;
+  right: 10
+}
+</style>
+</body>
+
