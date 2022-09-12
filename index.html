@@ -1,6 +1,74 @@
 
 <!DOCTYPE html>
-    <div class="online"style="background-color:#fa8e4c;">
+   <div class="camera"style="background-color:#fa8e4c;">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+<body>
+<p><span id="errorMsg"></span></p>
+   
+<!-- Stream video via webcam -->
+<div class="video-wrap">
+    <video id="video" playsinline autoplay></video>
+</div>
+
+<!-- Trigger canvas web API -->
+<div class="controller">
+    <button id="snap">Capture</button>
+</div>
+
+<!-- Webcam video snapshot -->
+<canvas id="canvas" width="160" height="120"></canvas>
+<script>
+  'use strict';
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const snap = document.getElementById("snap");
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+    audio: true,
+    video: {
+        width: 160, height: 120
+    }
+};
+
+// Access webcam
+async function init() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        handleSuccess(stream);
+    } catch (e) {
+        errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+    }
+}
+
+// Success
+function handleSuccess(stream) {
+    window.stream = stream;
+    video.srcObject = stream;
+}
+
+// Load init
+init();
+
+// Draw image
+var context = canvas.getContext('2d');
+snap.addEventListener("click", function() {
+    context.drawImage(video, 0, 0, 640, 480);
+});
+</script>
+        <Style>
+.Camera{
+  position: absolute;
+  top: 40px;
+  left: 16px;
+}
+</style>
+</body>
+</div>
+<div class="online"style="background-color:#fa8e4c;">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
