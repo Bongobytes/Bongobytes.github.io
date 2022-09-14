@@ -1,0 +1,47 @@
+<title>Multitask</title>
+<style>
+.a {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+</style>
+<div class="a">
+<form action="" method="post" id="url-setter">
+    <input type="text" name="url" id="url" />
+    <button type="submit" name="submit">Change URL</button>
+</form>
+<iframe id="the-frame" width="640" height="480" src=""></iframe>
+<script type="text/javascript">
+    (function () {
+        "use strict";
+        var url_setter = document.getElementById('url-setter'), url = document.getElementById('url'), the_iframe = document.getElementById('the-frame');
+        url_setter.onsubmit = function (event) {
+            event.preventDefault();
+            the_iframe.src = url.value;
+        };
+    }());
+</script>
+        <Style>
+.b{
+  position: absolute;
+  top: 0px;
+  right: 100%;
+}
+</style>
+<div class="b">
+<form action="" method="post" id="url-setter1">
+    <input type="text" name="url" id="url" />
+    <button type="submit" name="submit">Change URL</button>
+</form>
+<iframe id="the-frame1" width="640" height="480" src=""></iframe>
+<script type="text/javascript">
+    (function () {
+        "use strict";
+        var url_setter = document.getElementById('url-setter1'), url = document.getElementById('url'), the_iframe1 = document.getElementById('the-frame1');
+        url_setter.onsubmit = function (event) {
+            event.preventDefault();
+            the_iframe1.src = url.value;
+        };
+    }());
+</script>
