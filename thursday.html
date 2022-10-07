@@ -1,0 +1,194 @@
+<body onload="getSeconds();">
+    
+    </body>
+<h6>Next Meeting in <span class="days" id="days"></span><span class="smalltext"> days,</span>
+<span class="hours" id="hours"></span><span class="smalltext"> hours,</span>
+<span class="minutes" id="minutes"></span><span class="smalltext"> minutes</span>
+  <span class="minutes" id="seconds"></span><span class="smalltext"> Seconds</span>
+</h6>
+<script>
+  var curday;
+var secTime;
+var ticker;
+ 
+function getSeconds() {
+ var nowDate = new Date();
+ var dy = 4 ; //Sunday through Saturday, 0 to 6
+ var countertime = new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate(),21,0,0); //20 out of 24 hours = 8pm
+ 
+ var curtime = nowDate.getTime(); //current time
+ var atime = countertime.getTime(); //countdown time
+ var diff = parseInt((atime - curtime)/1000);
+ if (diff > 0) { curday = dy - nowDate.getDay() }
+ else { curday = dy - nowDate.getDay() -1 } //after countdown time
+ if (curday < 0) { curday += 7; } //already after countdown time, switch to next week
+ if (diff <= 0) { diff += (86400 * 7) }
+ startTimer (diff);
+}
+ 
+function startTimer(secs) {
+ secTime = parseInt(secs);
+ ticker = setInterval("tick()",1000);
+ tick(); //initial count display
+}
+ 
+function tick() {
+ var secs = secTime;
+ if (secs>0) {
+  secTime--;
+ }
+ else {
+  clearInterval(ticker);
+  getSeconds(); //start over
+ }
+ 
+ var days = Math.floor(secs/86400);
+ secs %= 86400;
+ var hours= Math.floor(secs/3600);
+ secs %= 3600;
+ var mins = Math.floor(secs/60);
+ secs %= 60;
+ 
+ //update the time display
+ document.getElementById("days").innerHTML = curday;
+ document.getElementById("hours").innerHTML = ((hours < 10 ) ? "0" : "" ) + hours;
+ document.getElementById("minutes").innerHTML = ( (mins < 10) ? "0" : "" ) + mins;
+ document.getElementById("seconds").innerHTML = ( (secs < 10) ? "0" : "" ) + secs;
+}
+</script>
+<!-- Logo Start -->
+<style>
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+</style>
+<div class="topleft">
+<a href="https://robohawks-site.github.io/logo.png" download> <img src="https://robohawks-site.github.io/logo.png" alt="logo" width="100" height="100"></a> 
+  </div>
+<!-- Logo End -->
+<!-- Code For Menu Starts -->
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+
+}
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<body>
+<head>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+
+}
+
+.topright {
+  position: absolute;
+  top: 0;
+  right: 16px;
+}
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+  </div>
+<body>
+
+<div class="bgimg">
+  <div class="topright">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 16;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="home.html">Home</a>
+  <a href="credits.html">Credits</a>
+  <a href="s.html">Schedule</a>
+  <a href="count.html">Count</a>
+      <a href="map.html">Map</a>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginleft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginleft= "0";
+}
+</script>
+   
+</body>
+</div>
+  </div>
+</div>
+<!-- Code For Menu Ends -->
