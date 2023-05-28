@@ -36,11 +36,28 @@
     }
   </style>
   <meta http-equiv="refresh" content="5; URL=https://hackerhawks.github.io/home.html" />
+  <script>
+    function countdown() {
+      var seconds = 5;
+      var countdownElement = document.getElementById('countdown');
+
+      setInterval(function() {
+        countdownElement.innerHTML = seconds;
+        seconds--;
+
+        if (seconds < 0) {
+          clearInterval();
+        }
+      }, 1000);
+    }
+
+    window.onload = countdown;
+  </script>
 </head>
 <body>
   <h1>You Are Being Redirected to the Homepage</h1>
   <p>Site made and maintained by Joshua Thayer</p>
-  <p>Redirection in 5 Seconds</p>
+  <p>Redirection in <span id="countdown">5</span> Seconds</p>
 
   <div class="footer">
     <p>&copy; 2023 Joshua Thayer. All rights reserved.</p>
