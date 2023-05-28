@@ -41,17 +41,18 @@
       var seconds = 5;
       var countdownElement = document.getElementById('countdown');
 
-      setInterval(function() {
+      var intervalId = setInterval(function() {
         countdownElement.innerHTML = seconds;
         seconds--;
 
         if (seconds < 0) {
-          clearInterval();
+          clearInterval(intervalId);
+          window.location.href = "https://hackerhawks.github.io/home.html";
         }
       }, 1000);
     }
 
-    window.onload = countdown;
+    countdown();
   </script>
 </head>
 <body>
