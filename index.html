@@ -1,68 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirecting...</title>
+  <title>Menu Example</title>
   <style>
-    body {
-      background-color: #f2f2f2;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 200px;
-    }
-
-    h1 {
-      font-size: 32px;
-      color: #333333;
-    }
-
-    p {
-      font-size: 18px;
-      color: #666666;
-    }
-
-    .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #333333;
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 0;
-    }
-
-    .footer p {
+    /* Style for the menu */
+    ul.menu {
+      list-style-type: none;
       margin: 0;
+      padding: 0;
+      background-color: black;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    ul.menu li {
+      display: inline;
+      margin-right: 10px;
+    }
+    
+    ul.menu li a {
+      color: #00ff00; /* Green text color */
+      text-decoration: none;
+      padding: 10px;
+      font-weight: bold;
+    }
+    
+    ul.menu li a:hover {
+      background-color: #00ff00; /* Green background color */
+      color: black;
+    }
+    
+    /* Style for the content divs */
+    .content {
+      color: white;
+      padding: 20px;
+      margin-top: 10px;
+      text-align: center; /* Center the content horizontally */
+      align-items: center; /* Center the content vertically */
+      display: flex; /* Enable flexbox layout */
+      flex-direction: column; /* Stack the content vertically */
+      justify-content: center; /* Center the content vertically */
+    }
+    
+    /* Style for the background */
+    body {
+      background-image: url("https://hackerhawks.github.io/Digital_rain_animation_medium_letters_shine.gif");
+      background-repeat: repeat; /* Set repeat or other value based on your gif */
+      background-size: cover;
+      margin: 0;
+      padding: 0;
     }
   </style>
-  <meta http-equiv="refresh" content="10; URL=https://hackerhawks.github.io/home.html" />
+  
   <script>
-    function countdown() {
-      var seconds = 10;
-      var countdownElement = document.getElementById('countdown');
-
-      var intervalId = setInterval(function() {
-        countdownElement.innerHTML = seconds;
-        seconds--;
-
-        if (seconds < 0) {
-          clearInterval(intervalId);
-          window.location.href = "https://hackerhawks.github.io/home.html";
-        }
-      }, 1000);
+    // JavaScript function to show/hide divs based on the menu item clicked
+    function showContent(contentId) {
+      var content = document.getElementById(contentId);
+      
+      // Hide all content divs
+      var contents = document.getElementsByClassName("content");
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+      }
+      
+      // Show the selected content div
+      content.style.display = "block";
     }
-
-    countdown();
+    
+    // Show the "Home" content div by default
+    window.onload = function() {
+      showContent('home');
+    };
   </script>
 </head>
 <body>
-  <h1>You Are Being Redirected to the Homepage</h1>
-  <p>Site made and maintained by Joshua Thayer</p>
-<p>Redirection in <span id="countdown">10</span> Seconds</p>
-
-
-  <div class="footer">
-    <p>&copy; 2023 Joshua Thayer. All rights reserved.</p>
+  <ul class="menu">
+    <li><a onclick="showContent('home')">Home</a></li>
+    <li><a onclick="showContent('credits')">Credits</a></li>
+    <li><a  onclick="showContent('contact')">Contact</a></li>
+        <li><a href="https://lesliek12.my.canva.site/#page-c">Support us</a></li>
+  </ul>
+  
+  <div id="home" class="content">
+    <h2>Welcome!</h2>
+    <p>Welcome to the HackerHawks#21491 Website!</p>
+    <iframe src="https://hackerhawks.github.io/slide.html" style="border:0px #ffffff none;" name="Slideshow" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="504px" width="672px" allowfullscreen></iframe>
+  </div>
+  
+  <div id="credits" class="content">
+    <h2>Credits</h2>
+    <p>Created and maintained by joshua thayer.</p>
+        <p>Currently Hosted With Github Pages.</p>
+  </div>
+  
+  <div id="contact" class="content">
+    <h2>Contact</h2>
+    <p>Get in touch with us.</p>
+        <p>Marcy.Thayer@lesliek12.net</p>
   </div>
 </body>
 </html>
