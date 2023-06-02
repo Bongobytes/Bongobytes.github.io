@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<head>
 <style>
 .alert {
   padding: 20px;
@@ -20,12 +23,16 @@
   color: black;
 }
 </style>
+</head>
+<body>
 <script>
-  var userAgent = navigator.userAgent;
-      if (userAgent.toLowerCase().includes('hh')) {
+  var userAgent = navigator.userAgent.toLowerCase();
+  if (userAgent.includes('hh')) {
     var alertDiv = document.createElement('div');
     alertDiv.className = 'alert';
     alertDiv.innerHTML = '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>Thanks</strong> for Using HH-Browser!';
     document.body.appendChild(alertDiv);
   }
 </script>
+</body>
+</html>
