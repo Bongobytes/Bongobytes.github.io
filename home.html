@@ -1,5 +1,40 @@
 <!DOCTYPE html>
 <html>
+  <head>
+<style>
+.alert {
+  padding: 20px;
+  background-color: #12fa0a;
+  color: black;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+</head>
+<body>
+<script>
+  var userAgent = navigator.userAgent.toLowerCase();
+  if (userAgent.includes('hh')) {
+    var alertDiv = document.createElement('div');
+    alertDiv.className = 'alert';
+    alertDiv.innerHTML = '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>Thanks</strong> for Using HH-Browser!';
+    document.body.appendChild(alertDiv);
+  }
+</script>
+</body>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Hackerhawks#21491 Webstite created and maintained by joshua thayer">
