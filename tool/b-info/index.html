@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Info</title>
+  <script>
+    function checkPassword() {
+      var allowedIPs = ["98.97.13.69", "127.0.0.1"]; // List of allowed IP addresses
+
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          var userIP = data.ip;
+          if (allowedIPs.includes(userIP)) {
+            showContent();
+          } else {
+            promptPassword();
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          promptPassword();
+        });
+    }
+
+    function promptPassword() {
+      var password = prompt("Enter the password:");
+      var allowedPasswords = ["hh-jt", "3fYRyb", "QtgbBa"]; // Add your desired passcodes here
+
+      if (allowedPasswords.includes(password)) {
+        showContent();
+      } else {
+        alert("Incorrect password. Access denied. (Please Contact The Hackerhawks#21491 if you want access)");
+      }
+    }
+
+    function updateTime() {
+      var date = new Date();
+      var exactTime = date.toLocaleTimeString(undefined, { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit", fractionalSecondDigits: 3 });
+      document.getElementById("exactTime").textContent = "Exact Time: " + exactTime;
+    }
+
+    function showContent() {
+      updateTime(); // Update the time initially
+
+      var date = new Date();
+      var exactDate = date.toLocaleDateString();
+      var screenSize = window.innerWidth + "x" + window.innerHeight;
+      var userAgent = navigator.userAgent;
+      var otherInfo = "Fetching IP address...";
+
+      document.getElementById("exactDate").textContent = "Exact Date: " + exactDate;
+      document.getElementById("screenSize").textContent = "Screen Size: " + screenSize;
+      document.getElementById("userAgent").textContent = "User Agent: " + userAgent;
+      document.getElementById("otherInfo").textContent = "Other Info: " + otherInfo;
+
+      document.getElementById("content").style.display = "block";
+      document.getElementById("passwordForm").style.display = "none";
+
+      fetchIP(); // Fetch and display the user's IP address
+      // Update the time every millisecond
+      setInterval(updateTime, 1);
+    }
+
+    function fetchIP() {
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          var ipAddress = data.ip;
+          document.getElementById("otherInfo").textContent = "IP: " + ipAddress;
+        })
+        .catch(error => {
+          console.log(error);
+          document.getElementById("otherInfo").textContent = "Ip: Sorry Hackerhawks couldn't catch your ip; please connect to the World Wide Web!";
+        });
+    }
+  </script>
+  <style>
+    #content {
+      display: none;
+    }
+  </style>
+</head>
+<body onload="checkPassword()">
+  <div id="passwordForm">
+    <h1>Restricted Access</h1>
+    <p>This site is password protected. Please enter the password to proceed:</p>
+    <form>
+      <input type="password" id="passwordInput">
+      <input type="button" value="Submit" onclick="checkPassword()">
+    </form>
+    <h2>Want Access?</h2>
+    <button onclick="window.location.href='https://forms.gle/ETDcbFK7TrGSeSsQ6';">
+      Apply for access
+    </button>
+  </div>
+  <div id="content">
+    <h1>Welcome!</h1>
+    <p id="exactTime"></p>
+    <p id="exactDate"></p>
+    <p id="screenSize"></p>
+    <p id="userAgent"></p>
+    <p id="otherInfo"></p>
+  </div>
+</body>
+</html>
