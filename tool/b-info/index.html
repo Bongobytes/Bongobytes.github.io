@@ -48,6 +48,10 @@
       var userAgent = navigator.userAgent;
       var otherInfo = "Fetching IP address...";
 
+      if (userAgent.toLowerCase().includes('tgu')) {
+        userAgent = "TGU Browser";
+      }
+
       document.getElementById("exactDate").textContent = "Exact Date: " + exactDate;
       document.getElementById("screenSize").textContent = "Screen Size: " + screenSize;
       document.getElementById("userAgent").textContent = "User Agent: " + userAgent;
