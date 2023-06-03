@@ -1,35 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>https://hackerhawks.github.io</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/home.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/slide.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/map.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/count.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/s.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/credits.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/Leslie%20Robotics%20Sponsor%20Letter%202022-23.pdf</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/thursday.html</loc>
-  </url>
-  <url>
-    <loc>https://hackerhawks.github.io/friday.html</loc>
-  </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://hackerhawks.github.io/</loc>
+   </url>
+   <url>
+      <loc>https://hackerhawks.github.io/tools</loc>
+   </url>
+   <url>
+      <loc>https://hackerhawks.github.io/home.html</loc>
+   </url>
+   <url>
+      <loc>https://hackerhawks.github.io/index.html</loc>
+   </url>
+   <url>
+      <loc>https://hackerhawks.github.io/tool/b-info</loc>
+   </url>
+   <url>
+      <loc>https://hackerhawks.github.io/tool/todo</loc>
+   </url>
+   <url>
+      <loc>https://hackerhawks.github.io/legacy</loc>
+   </url>
 </urlset>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
