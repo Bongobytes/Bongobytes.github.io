@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <html>
+  <head>
+  <script>
+    function checkIpifyStatus() {
+      fetch('https://api.ipify.org/?format=json')
+        .then(function(response) {
+          if (!response.ok) {
+            showAlert('Error: IPify is offline. Device-based login is also offline.');
+          }
+        })
+        .catch(function(error) {
+          showAlert('Error: ' + error.message);
+        });
+    }
+
+    function showAlert(message) {
+      alert(message);
+    }
+  </script>
+</head>
+<body onload="checkIpifyStatus()">
+</body>
 <head>
   <title>Device Info</title>
   <script>
